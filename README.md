@@ -24,10 +24,10 @@
 cd /mnt/workspace  # 切换到你的持久化存储目录
 
 # 1. 下载压缩包 (使用 ghfast 加速)
-wget https://ghfast.top/https://github.com/fzfz666/llamafactory-mlu/raw/main/Cambricon_Full_Golden_Backup.tar.gz
+wget https://ghfast.top/https://github.com/fzfz666/llamafactory-mlu/raw/main/LLaMA-Factory_mlu_Source_Only.tar.gz
 
 # 2. 解压
-tar -xzvf Cambricon_Full_Golden_Backup.tar.gz
+tar -xzvf LLaMA-Factory_mlu_Source_Only.tar.gz
 
 # 3. 进入目录 (此时你应该能看到四个 _mlu 结尾的文件夹)
 cd Cambricon_LLM_Env
@@ -51,7 +51,7 @@ cd LLaMA-Factory_mlu
 pip install -e .[metrics]
 cd ..
 
-# 4. 【核心步骤】强制将环境重定向到我们的 MLU 魔改源码
+# 4. 【核心步骤】强制将环境重定向到我们的 MLU 魔改源码（注意本项目中提供的源码不包含以下三个库的源码，因为太大了上传不上来哈！你可以联系我，或者是直接去算你网使用对应的镜像，到时只需要再重新下载llama factory即可使用。 ）
 # 这一步会覆盖掉刚才安装的官方版，确保 import 时调用的是 MLU 适配版
 cd transformers_mlu && pip install -e . && cd ..
 cd peft_mlu && pip install -e . && cd ..
